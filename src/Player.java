@@ -16,7 +16,7 @@ public abstract class Player {
 	
 	
 	/*Show hand - displays differently for Player vs Dealer
-    * Polymorphism: NormalPlayer shows all cards, Dealer shows only upcard
+    * NormalPlayer shows all cards, Dealer shows only upcard
     */
 	public abstract void showHand();
 	

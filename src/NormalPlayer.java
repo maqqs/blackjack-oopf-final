@@ -7,11 +7,13 @@ public class NormalPlayer extends Player {
 
 	public NormalPlayer(Hand hand, String name) {
 		super(hand);
-		this.name = name;
+		setName(name);
 		//this.bank = bank;
 	}
 
-	
+	public void setName(String n) {
+		this.name = n;
+	}
 	
 	
 	/**
@@ -30,7 +32,7 @@ public class NormalPlayer extends Player {
         Card drawnCard = deck.deal();
         hand.addCard(drawnCard);
         System.out.println(name + " draws: " + drawnCard.toString());
-        System.out.println(name + "'s total: " + getHandValue());
+        System.out.println(name + "'s new total value: " + getHandValue());
         
         if (hand.isBust()) {
             System.out.println("💥 " + name + " busts with " + getHandValue() + "!");
@@ -63,8 +65,8 @@ public class NormalPlayer extends Player {
 	
 	@Override
 	public void showHand() {
-        System.out.println("\nPlayer's Full Hand:");
+        System.out.printf("%n%s's Cards:%n", name);
         hand.showCards();
-        System.out.println("Total Value: " + getHandValue());
+        System.out.println();
     }
 }

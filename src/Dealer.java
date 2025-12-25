@@ -11,7 +11,9 @@ public class Dealer extends Player {
     public void playTurn(Deck deck) {
         while (getHandValue() < 17) {
             Card c = deck.deal();
-            this.hand.addCard(c);
+            // just in case break if deck run out / empty
+            if (c == null) break;
+            hand.addCard(c);
         }
     }
 
@@ -38,6 +40,5 @@ public class Dealer extends Player {
     public void revealFullHand() {
         System.out.println("\nDealer's Full Hand:");
         hand.showCards();
-        System.out.println("Total Value: " + getHandValue());
     }
 }

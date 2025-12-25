@@ -5,11 +5,14 @@ public class Hand {
 	private int totalValue;
 	private int numAces;
 	
-	public Hand(ArrayList<Card> cards, int totalValue, int numAces) {
-		this.cards = new ArrayList<>();
-		this.totalValue = 0;
-		this.numAces = 0;
+	//Constructor
+	// hand always start empty
+	public Hand() {
+	    this.cards = new ArrayList<>();
+	    this.totalValue = 0;
+	    this.numAces = 0;
 	}
+	
 	//add cards to hand
 	public void addCard(Card c) {
 		cards.add(c);

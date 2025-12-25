@@ -21,6 +21,7 @@ public class Card {
 	public int getValue() {
 		return value;
 	}
+	
 	// No setter because any individual card's suit/rank can't be changed
 	
 	@Override
