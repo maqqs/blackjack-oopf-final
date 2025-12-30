@@ -2,71 +2,54 @@
 public class NormalPlayer extends Player {
 	
 	private String name;
-	//private Bank bank;
+	private Bank bank;
 	
+
 
 	public NormalPlayer(Hand hand, String name) {
 		super(hand);
-		setName(name);
-		//this.bank = bank;
+		this.name = name;
+		this.bank = new Bank(100);
 	}
 
-	public void setName(String n) {
-		this.name = n;
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public Bank getBank() {
+		return bank;
 	}
 	
 	
-	/**
-     * Stand - player chooses not to draw more cards
-     * Simply ends the player's turn
-     */
+	// stand 
     public void stand() {
         System.out.println(name + " stands with " + getHandValue());
     }
     
-    /**
-     * Hit - player draws one card from deck
-     * @param deck The deck to draw from
-     */
+    // hit - player draws one card from deck
     public void hit(Deck deck) {
         Card drawnCard = deck.deal();
         hand.addCard(drawnCard);
         System.out.println(name + " draws: " + drawnCard.toString());
-        System.out.println(name + "'s new total value: " + getHandValue());
+        hand.showCards();
         
         if (hand.isBust()) {
             System.out.println("💥 " + name + " busts with " + getHandValue() + "!");
         }
     }
-    
-    /**
-     * Place bet - deduct bet amount from bank
-     * @param amount Bet amount
-     */
-    /*public void placeBet(int amount) {
-        if (bank.getBalance() >= amount) {
-            bank.lose(amount);
-            System.out.println(name + " bets $" + amount);
-            System.out.println("Remaining balance: $" + bank.getBalance());
-        } else {
-            System.out.println("❌ Insufficient balance! You have $" + bank.getBalance());
-        }
-    }
-    */
-    
-    
-    @Override
-	public void playTurn(Deck deck) {
-        // This is controlled by Game class with user input
-        // Player manually chooses hit() or stand()
-        // This implementation satisfies the abstract method requirement
-        System.out.println(name + "'s turn (controlled by user input in Game class)");
-    }
+
+   
 	
 	@Override
 	public void showHand() {
-        System.out.printf("%n%s's Cards:%n", name);
+		System.out.printf("%n%s's Cards:%n", name);
         hand.showCards();
         System.out.println();
     }
+
+	public String getName() {
+		return name;
+	}
+
+
 }

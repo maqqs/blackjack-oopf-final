@@ -15,14 +15,16 @@ public class Hand {
 	
 	//add cards to hand
 	public void addCard(Card c) {
-		cards.add(c);
-		totalValue += c.getValue();
-		
-		//1 or 11 for ACES
-		if (c.getRank().equals("Ace")){
-			numAces++;
-		}
+	    cards.add(c);
+
+	    if (c.getRank().equals("Ace")) {
+	        totalValue += 11;   // Ace starts as 11
+	        numAces++;
+	    } else {
+	        totalValue += c.getValue();
+	    }
 	}
+
 	
 	
 	//get all cards in hand
@@ -49,6 +51,11 @@ public class Hand {
 		return getTotalValue()>21;
 	}
 	
+	//check if is blackjack
+	public boolean isBlackjack() {
+	    return cards.size() == 2 && getTotalValue() == 21;
+	}
+	
 	
 	//clear hand for new round
 	public void clearHand() {
@@ -60,7 +67,7 @@ public class Hand {
 	
 	//show all cards in hand
 	public void showCards() {
-        System.out.print("Cards: ");
+		System.out.print("| ");
         for (Card card : cards) {
             System.out.print(card.toString() + " | ");
         }

@@ -5,7 +5,7 @@ public class Deck {
 	
 	public Deck() {
 		String[] ranks= {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-		String[] suits= {"Spade", "Hearts" , "Clubs", "Diamond"};
+		String[] suits= {"Spades", "Hearts" , "Clubs", "Diamonds"};
 		int[] values= {1,2,3,4,5,6,7,8,9,10,10,10,10};
 		
 		for (String s: suits) {
@@ -35,23 +35,4 @@ public class Deck {
 		return cards.remove(0);
 	}
 	
-	public void resetDeck() {
-	    cards.clear(); 
-
-	    String[] ranks= {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-		String[] suits= {"Spade", "Hearts" , "Clubs", "Diamond"};
-		int[] values= {1,2,3,4,5,6,7,8,9,10,10,10,10};
-		
-		for (String s: suits) {
-			for(int i=0; i<ranks.length; i++) {
-				cards.add(new Card(ranks[i],s,values[i]));
-			}
-		}
-	}
-	
-	public void cardsLeft() {
-		System.out.println("Cards left in deck: " + cards.size());
-			
-		}
-
- }
+}

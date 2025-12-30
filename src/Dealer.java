@@ -7,12 +7,10 @@ public class Dealer extends Player {
 
    
      // Dealer's turn logic: Hits until total value is 17 or higher.
-     // This is a new method specific to Dealer.
+
     public void playTurn(Deck deck) {
         while (getHandValue() < 17) {
             Card c = deck.deal();
-            // just in case break if deck run out / empty
-            if (c == null) break;
             hand.addCard(c);
         }
     }
