@@ -1,6 +1,6 @@
 
 public class Player {
-	protected Hand hand;
+	private Hand hand;
 
 	public Player(Hand hand) {
 		this.hand = hand;

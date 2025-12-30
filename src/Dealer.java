@@ -11,7 +11,7 @@ public class Dealer extends Player {
     public void playTurn(Deck deck) {
         while (getHandValue() < 17) {
             Card c = deck.deal();
-            hand.addCard(c);
+            getHand().addCard(c);
         }
     }
 
@@ -19,8 +19,8 @@ public class Dealer extends Player {
      // Override showHand() to show only the dealer's upcard initially.
     @Override
     public void showHand() {
-        if (!hand.getCards().isEmpty()) {
-            System.out.println("Dealer's Upcard: " + hand.getCards().get(0));
+        if (!getHand().getCards().isEmpty()) {
+            System.out.println("Dealer's Upcard: " + getHand().getCards().get(0));
         } else {
             System.out.println("Dealer has no cards yet.");
         }
@@ -37,6 +37,6 @@ public class Dealer extends Player {
      
     public void revealFullHand() {
         System.out.println("\nDealer's Full Hand:");
-        hand.showCards();
+        getHand().showCards();
     }
 }

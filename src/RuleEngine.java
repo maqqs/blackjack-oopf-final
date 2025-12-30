@@ -1,9 +1,5 @@
 public class RuleEngine {
 
-    //Calculate total hand value (including Ace logic) =====
-    public int calculateHandValue(Hand hand) {
-        return hand.getTotalValue(); 
-    }
 
     //Check if a Player is bust (>21)
     public boolean isBust(Player p) {

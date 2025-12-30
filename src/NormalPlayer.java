@@ -29,11 +29,11 @@ public class NormalPlayer extends Player {
     // hit - player draws one card from deck
     public void hit(Deck deck) {
         Card drawnCard = deck.deal();
-        hand.addCard(drawnCard);
+        getHand().addCard(drawnCard);
         System.out.println(name + " draws: " + drawnCard.toString());
-        hand.showCards();
+        getHand().showCards();
         
-        if (hand.isBust()) {
+        if (getHand().isBust()) {
             System.out.println("💥 " + name + " busts with " + getHandValue() + "!");
         }
     }
@@ -43,7 +43,7 @@ public class NormalPlayer extends Player {
 	@Override
 	public void showHand() {
 		System.out.printf("%n%s's Cards:%n", name);
-        hand.showCards();
+        getHand().showCards();
         System.out.println();
     }
 
